@@ -9,7 +9,9 @@ import "./assets/img/4geeks.ico";
 window.onload = function() {
   //write your code here
   randomCard();
+  changeSizeCard();
 };
+
 window.randomCard = function() {
   let form = ["♦", "♥", "♠", "♣"];
   let symbol = Math.floor(Math.random() * form.length);
@@ -35,4 +37,21 @@ window.randomCard = function() {
   } else {
     document.getElementById("formBottom").style.color = "black";
   }
+
+  if (symbolform == "♥" || symbolform == "♦") {
+    document.getElementById("randomCard").style.color = "red";
+  } else {
+    document.getElementById("randomCard").style.color = "black";
+  }
+};
+// Execute a function every 10 second
+const intervalId = setInterval(() => {
+  randomCard();
+}, 10000);
+
+window.changeSizeCard = function() {
+  document.querySelector("#card").style.height =
+    document.getElementById("height").value + "px";
+  document.querySelector("#card").style.width =
+    document.getElementById("width").value + "px";
 };
